@@ -57,6 +57,22 @@
 			</li>';
 
 		}
+		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){
+
+			echo '<li>
+
+				<a href="proveedor">
+
+					<i class="fa fa-th"></i>
+					<span>Proveedor</span>
+
+				</a>
+
+			</li>'
+
+			;
+
+		}
 
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 

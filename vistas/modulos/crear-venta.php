@@ -256,7 +256,7 @@ if($_SESSION["perfil"] == "Especial"){
                         <option value="Efectivo">Efectivo</option>
                         <option value="TC">Tarjeta Crédito</option>
                         <option value="TD">Tarjeta Débito</option>   
-                        <option value="CH">Cheque</option>               
+                        <option value="Cheque">Cheque</option>               
                       </select>    
 
                     </div>

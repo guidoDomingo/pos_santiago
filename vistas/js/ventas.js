@@ -54,7 +54,8 @@ AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
-
+	console.log(idProducto);
+	
 	$(this).removeClass("btn-primary agregarProducto");
 
 	$(this).addClass("btn-default");
@@ -591,7 +592,7 @@ $("#nuevoMetodoPago").change(function(){
                         
                 '<div class="input-group">'+
                      
-                  '<input type="text"  class="form-control" id="nuevoCodigoTransaccion" placeholder="Banco"  required>'+
+                  '<input type="text" style="width: 95%; margin-left:15px; margin-top:2px"  class="form-control" name="nuevoBanco" id="nuevoBanco" placeholder="Banco"  required>'+
                        
                   '<span class="input-group-addon"><i class="fa fa-lock"></i></span>'+
                   
@@ -599,7 +600,9 @@ $("#nuevoMetodoPago").change(function(){
 
               '</div>'
 			  
-		 )
+		 );
+		 // Listar método en la entrada
+		 listarMetodos()
 	}else{
 		
 		$(this).parent().parent().removeClass('col-xs-4');
@@ -651,6 +654,16 @@ $(".formularioVenta").on("change", "input#nuevoCodigoTransaccion", function(){
 
 
 })
+/*=============================================
+CAMBIO BANCO
+=============================================*/
+$(".formularioVenta").on("change", "input#nuevoBanco", function(){
+
+	// Listar método en la entrada
+     listarMetodos()
+
+
+})
 
 
 /*=============================================
@@ -694,6 +707,8 @@ function listarMetodos(){
 
 		$("#listaMetodoPago").val("Efectivo");
 
+	}else if($("#nuevoMetodoPago").val() == "Cheque"){
+		$("#listaMetodoPago").val("Cheque"+"-"+$("#nuevoBanco").val());
 	}else{
 
 		$("#listaMetodoPago").val($("#nuevoMetodoPago").val()+"-"+$("#nuevoCodigoTransaccion").val());
