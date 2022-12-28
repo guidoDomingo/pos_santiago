@@ -2,6 +2,7 @@
 
 require_once "../controladores/productos.controlador.php";
 require_once "../modelos/productos.modelo.php";
+require_once "../modelos/proveedor.modelo.php";
 
 
 class TablaProductosVentas{
@@ -14,7 +15,7 @@ class TablaProductosVentas{
 
 		$item = null;
     	$valor = null;
-    	$orden = "id";
+    	$orden = "fecha";
 
   		$productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
  		
@@ -29,6 +30,17 @@ class TablaProductosVentas{
 		  "data": [';
 
 		  for($i = 0; $i < count($productos); $i++){
+			$tabla = "proveedor";
+			$item = "id";
+			$valor = $productos[$i]["id_proveedor"];
+
+			if(is_null($valor)){
+				$proveedor = "";
+			}else{
+
+				$proveedor = ModeloProveedor::mdlMostrarProveedor($tabla, $item, $valor);
+				$proveedor = $proveedor['nombre'];
+			}
 
 		  	/*=============================================
  	 		TRAEMOS LA IMAGEN
@@ -64,6 +76,7 @@ class TablaProductosVentas{
 			      "'.($i+1).'",
 			      "'.$imagen.'",
 			      "'.$productos[$i]["codigo"].'",
+			      "'.$proveedor.'",
 			      "'.$productos[$i]["descripcion"].'",
 			      "'.$stock.'",
 			      "'.$botones.'"

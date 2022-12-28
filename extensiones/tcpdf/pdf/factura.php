@@ -30,6 +30,9 @@ $productos = json_decode($respuestaVenta["productos"], true);
 $neto = number_format($respuestaVenta["neto"],2);
 $impuesto = number_format($respuestaVenta["impuesto"],2);
 $total = number_format($respuestaVenta["total"],2);
+$iva = ceil($respuestaVenta["total"] / 11) ;
+$formatterES = new NumberFormatter("es", NumberFormatter::SPELLOUT);
+$total_letra = $formatterES->format($respuestaVenta["total"]);
 
 //TRAEMOS LA INFORMACIÓN DEL CLIENTE
 
@@ -63,21 +66,7 @@ $bloque1 = <<<EOF
 		
 		<tr>
 			
-			<td style="width:150px"><img src="images/logo.jpg"></td>
-
-			<td style="background-color:white; width:140px">
-				
-				<div style="font-size:8.5px; text-align:right; line-height:15px;">
-					
-					<br>
-					NIT: 71.759.963-9
-
-					<br>
-					Dirección: Caacupé Cordillera - Paraguay
-
-				</div>
-
-			</td>
+			<td style="width:120px"><img src="images/logo.jpg"></td>
 
 			<td style="background-color:white; width:140px">
 
@@ -90,14 +79,36 @@ $bloque1 = <<<EOF
 					distribuidora3sgotze@gmail.com
 
 				</div>
+
+				<div style="font-size:8.5px; text-align:right; line-height:15px;">
+					
+				
+					NIT: 71.759.963-9
+
+				
+					Dirección: Caacupé Cordillera - Paraguay
+
+				</div>
 				
 			</td>
+			<td style="background-color:white; font-size: 10px;">
+				<div style="width:70px; display:flex">
+					<span style="background-color:white; font-size: 8px;  text-align:center;"><br><br>Nº DE TIMBRADO <br>1567895</span>
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha inicio de vigencia: <br>12/12/21</span>
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha fin de vigencia: <br>12/12/22</span>
+				</div>
+			</td>
 
-			<td style="background-color:white; width:110px; text-align:center; color:red"><br><br>FACTURA N.<br>$valorVenta</td>
-
+			<td style="background-color:white; font-size: 10px;">
+				<div style="width:70px; display:flex">
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Ruc: <br>89654232-3</span>
+					<span style="background-color:white; font-size: 8px; text-align:center; color:red"><br><br>FACTURA Nº <br>$valorVenta</span>
+				</div>
+			</td>
 		</tr>
 
 	</table>
+
 
 EOF;
 
@@ -135,6 +146,11 @@ $bloque2 = <<<EOF
 
 		</tr>
 
+		<tr>
+		
+			<td style="border: 1px solid #666; background-color:white; width:540px">Ruc: $respuestaCliente[documento]</td>
+
+		</tr>
 		<tr>
 		
 			<td style="border: 1px solid #666; background-color:white; width:540px">Vendedor: $respuestaVendedor[nombre]</td>
@@ -239,8 +255,13 @@ $bloque5 = <<<EOF
 		</tr>
 		
 		<tr>
-		
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+			<td style="border: 1px solid #666;  background-color:white; width:120px; text-align:center">
+				Total apagar:
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:220px; text-align:center">
+				$ $total_letra
+			</td>
 
 			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
 				Neto:
@@ -262,6 +283,20 @@ $bloque5 = <<<EOF
 		
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
 				$ $impuesto
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+
+			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+				Total Iva:
+			</td>
+		
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+				$ $iva
 			</td>
 
 		</tr>

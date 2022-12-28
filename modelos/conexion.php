@@ -4,8 +4,8 @@
 
 	 	static public function conectar(){
 
-	 		$link = new PDO("mysql:host=localhost;dbname=posfactura"
-	 						,"root","");
+	 		$link = new PDO("mysql:host=localhost;dbname=unclzepr_posFactura"
+	 						,"unclzepr_guido","$Guido$123");
 
 	 		$link->exec("set names utf8");
 
