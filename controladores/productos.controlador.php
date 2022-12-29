@@ -251,6 +251,7 @@ class ControladorProductos{
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
 							   "codigo" => $_POST["editarCodigo"],
 							   "descripcion" => $_POST["editarDescripcion"],
+							   "id_proveedor" => $_POST["editarProveedor"],
 							   "stock" => $_POST["editarStock"],
 							   "precio_compra" => $_POST["editarPrecioCompra"],
 							   "precio_venta" => $_POST["editarPrecioVenta"],

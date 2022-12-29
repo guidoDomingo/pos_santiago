@@ -135,11 +135,18 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <div class="btn-group">
                         
-                      <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
+                      <button type="button" class="btn btn-info btnImprimirFactura" data-toggle="tooltip" data-placement="top" title="Factura" codigoVenta="'.$value["codigo"].'">
 
                         <i class="fa fa-print"></i>
 
-                      </button>';
+                      </button>
+
+                      <button class="btn btn-info btnImprimirTicket" data-toggle="tooltip" data-placement="top" title="Ticket" codigoVenta="'.$value["codigo"].'">
+
+                      <i class="fa fa-list"></i>
+
+                      </button>'
+                      ;
 
                       if($_SESSION["perfil"] == "Administrador"){
 

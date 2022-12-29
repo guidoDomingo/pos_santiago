@@ -50,7 +50,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablasProveedor" width="100%">
          
         <thead>
          
@@ -82,9 +82,9 @@ if($_SESSION["perfil"] == "Vendedor"){
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["nombre"].'</td>
+                    <td  class="text-uppercase">'.$value["nombre"].'</td>
 
-                    <td class="text-uppercase">'.$value["ruc"].'</td>
+                    <td  class="text-uppercase">'.$value["ruc"].'</td>
 
                     <td>
 
@@ -213,7 +213,7 @@ MODAL AGREGAR CATEGORÍA
 MODAL EDITAR CATEGORÍA
 ======================================-->
 
-<div id="modalEditarCategoria" class="modal fade" role="dialog">
+<div id="modalEditarProveedor" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -229,7 +229,7 @@ MODAL EDITAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar categoría</h4>
+          <h4 class="modal-title">Editar Proveedor</h4>
 
         </div>
 
@@ -249,9 +249,22 @@ MODAL EDITAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+                <input type="text" class="form-control input-lg" name="edit_prov_nombre" id="edit_prov_nombre" required>
 
-                 <input type="hidden"  name="idCategoria" id="idCategoria" required>
+                <input type="hidden"  name="idProveedor" id="idProveedor" required>
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL RUC -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="edit_prov_ruc" id="edit_prov_ruc" required>
 
               </div>
 
@@ -275,8 +288,8 @@ MODAL EDITAR CATEGORÍA
 
       <?php
 
-          $editarCategoria = new ControladorCategorias();
-          $editarCategoria -> ctrEditarCategoria();
+          $editarProveedor = new ControladorProveedor();
+          $editarProveedor -> ctrEditarProveedor();
 
         ?> 
 

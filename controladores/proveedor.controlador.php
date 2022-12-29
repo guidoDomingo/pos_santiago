@@ -3,7 +3,7 @@
 class ControladorProveedor{
 
 	/*=============================================
-	CREAR CATEGORIAS
+	CREAR PROVEEDOR
 	=============================================*/
 
 	static public function ctrCrearProveedor(){
@@ -67,7 +67,7 @@ class ControladorProveedor{
 	}
 
 	/*=============================================
-	MOSTRAR CATEGORIAS
+	MOSTRAR PROVEEDOR
 	=============================================*/
 
 	static public function ctrMostrarProveedor($item, $valor){
@@ -81,35 +81,38 @@ class ControladorProveedor{
 	}
 
 	/*=============================================
-	EDITAR CATEGORIA
+	EDITAR PROVEEDOR
 	=============================================*/
 
-	static public function ctrEditarCategoria(){
+	static public function ctrEditarProveedor(){
 
-		if(isset($_POST["editarCategoria"])){
+		if(isset($_POST["edit_prov_nombre"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["edit_prov_nombre"])){
 
-				$tabla = "categorias";
+				$tabla = "proveedor";
 
-				$datos = array("categoria"=>$_POST["editarCategoria"],
-							   "id"=>$_POST["idCategoria"]);
-
-				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
-
+				$datos = array(
+								"nombre" => $_POST["edit_prov_nombre"],
+								"ruc" => $_POST["edit_prov_ruc"],
+							    "id" => $_POST["idProveedor"]
+							);
+				//return var_dump($datos);
+				$respuesta = ModeloProveedor::mdlEditarProveedor($tabla, $datos);
+		
 				if($respuesta == "ok"){
 
 					echo'<script>
 
 					swal({
 						  type: "success",
-						  title: "La categoría ha sido cambiada correctamente",
+						  title: "El proveedor ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "proveedor";
 
 									}
 								})
@@ -125,13 +128,13 @@ class ControladorProveedor{
 
 					swal({
 						  type: "error",
-						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El proveedor no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "proveedor";
 
 							}
 						})

@@ -2,6 +2,7 @@
 
 require_once "../controladores/productos.controlador.php";
 require_once "../modelos/productos.modelo.php";
+require_once "../modelos/proveedor.modelo.php";
 
 require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
@@ -32,6 +33,22 @@ class TablaProductos{
 		  "data": [';
 
 		  for($i = 0; $i < count($productos); $i++){
+
+			/*
+				TRAEMOS EL PROVEEDOR
+			*/
+
+			$tabla = "proveedor";
+			$item = "id";
+			$valor = $productos[$i]["id_proveedor"];
+
+			if(is_null($valor)){
+				$proveedor = "";
+			}else{
+
+				$proveedor = ModeloProveedor::mdlMostrarProveedor($tabla, $item, $valor);
+				$proveedor = $proveedor['nombre'];
+			}
 
 		  	/*=============================================
  	 		TRAEMOS LA IMAGEN
@@ -85,6 +102,7 @@ class TablaProductos{
 			      "'.($i+1).'",
 			      "'.$imagen.'",
 			      "'.$productos[$i]["codigo"].'",
+			      "'.$proveedor.'",
 			      "'.$productos[$i]["descripcion"].'",
 			      "'.$categorias["categoria"].'",
 			      "'.$stock.'",

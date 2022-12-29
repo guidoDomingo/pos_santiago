@@ -810,6 +810,17 @@ $(".tablas").on("click", ".btnImprimirFactura", function(){
 	window.open("extensiones/tcpdf/pdf/factura.php?codigo="+codigoVenta, "_blank");
 
 })
+/*=============================================
+IMPRIMIR TICKET
+=============================================*/
+
+$(".tablas").on("click", ".btnImprimirTicket", function(){
+
+	var codigoVenta = $(this).attr("codigoVenta");
+	console.log(codigoVenta);
+	window.open("extensiones/ticketpdf/ticket.php?codigo="+codigoVenta, "_blank");
+
+})
 
 /*=============================================
 RANGO DE FECHAS

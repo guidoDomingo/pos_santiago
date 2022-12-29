@@ -71,9 +71,12 @@ $bloque1 = <<<EOF
 			<td style="background-color:white; width:140px">
 
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
-					
 					<br>
-					Teléfono: 0983 528 000
+					de Santiago Vallejos O.
+					<br>
+					Importación y Exportación
+					<br>
+					Teléfono: 0981 593 081 / 0984 512 807
 					
 					<br>
 					distribuidora3sgotze@gmail.com
@@ -81,28 +84,25 @@ $bloque1 = <<<EOF
 				</div>
 
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
-					
-				
-					NIT: 71.759.963-9
 
 				
-					Dirección: Caacupé Cordillera - Paraguay
+					Dirección: Caacupé - Cordillera - Paraguay
 
 				</div>
 				
 			</td>
 			<td style="background-color:white; font-size: 10px;">
 				<div style="width:70px; display:flex">
-					<span style="background-color:white; font-size: 8px;  text-align:center;"><br><br>Nº DE TIMBRADO <br>1567895</span>
-					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha inicio de vigencia: <br>12/12/21</span>
-					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha fin de vigencia: <br>12/12/22</span>
+					<span style="background-color:white; font-size: 8px;  text-align:center;"><br><br>Nº DE TIMBRADO <br>16025028</span>
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha inicio de vigencia: <br>16/11/2022</span>
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Fecha fin de vigencia: <br>30/11/2023</span>
 				</div>
 			</td>
 
 			<td style="background-color:white; font-size: 10px;">
 				<div style="width:70px; display:flex">
-					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Ruc: <br>89654232-3</span>
-					<span style="background-color:white; font-size: 8px; text-align:center; color:red"><br><br>FACTURA Nº <br>$valorVenta</span>
+					<span style="background-color:white; font-size: 8px; text-align:center;"><br><br>Ruc: <br>1555729-4</span>
+					<span style="background-color:white; font-size: 8px; text-align:center; color:red"><br><br>FACTURA Nº <br>001-002- <strong>0001428</strong></span>
 				</div>
 			</td>
 		</tr>

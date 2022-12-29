@@ -232,10 +232,30 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
               contentType: false,
               processData: false,
               dataType:"json",
-              success:function(respuesta){
+              success:function(respuesta1){
                   
-                  $("#editarCategoria").val(respuesta["id"]);
-                  $("#editarCategoria").html(respuesta["categoria"]);
+                  $("#editarCategoria").val(respuesta1["id"]);
+                  $("#editarCategoria").html(respuesta1["categoria"]);
+
+              }
+
+          })
+
+          var datosProveedor = new FormData();
+          datosProveedor.append("idProveedor",respuesta["id_proveedor"]);
+
+           $.ajax({
+
+              url:"ajax/proveedor.ajax.php",
+              method: "POST",
+              data: datosProveedor,
+              cache: false,
+              contentType: false,
+              processData: false,
+              dataType:"json",
+              success:function(respuesta2){
+                  
+                  $("#editarProveedorId").val(respuesta2["id"]);
 
               }
 

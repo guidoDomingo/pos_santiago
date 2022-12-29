@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloProveedor{
 
 	/*=============================================
-	CREAR CATEGORIA
+	CREAR PROVEEDOR
 	=============================================*/
 
 	static public function mdlIngresarProveedor($tabla, $datos){
@@ -60,12 +60,12 @@ class ModeloProveedor{
 	}
 
 	/*=============================================
-	EDITAR CATEGORIA
+	EDITAR PROVEEDOR
 	=============================================*/
 
 	static public function mdlEditarProveedor($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre and ruc = :ruc WHERE id = :id");
+	
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, ruc = :ruc WHERE id = :id");
 
 		$stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt -> bindParam(":ruc", $datos["ruc"], PDO::PARAM_STR);
