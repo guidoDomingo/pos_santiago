@@ -177,9 +177,10 @@ $bloque3 = <<<EOF
 
 		<tr>
 		
-		<td style="border: 1px solid #666; background-color:white; width:260px; text-align:center">Producto</td>
+		<td style="border: 1px solid #666; background-color:white; width:140px; text-align:center">Producto</td>
 		<td style="border: 1px solid #666; background-color:white; width:80px; text-align:center">Cantidad</td>
 		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Valor Unit.</td>
+		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Descuento.</td>
 		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Valor Total</td>
 
 		</tr>
@@ -202,6 +203,9 @@ $respuestaProducto = ControladorProductos::ctrMostrarProductos($itemProducto, $v
 
 $valorUnitario = number_format($respuestaProducto["precio_venta"], 2);
 
+$valorBruto = intval($item['cantidad']) * intval($respuestaProducto["precio_venta"]);
+$valorDescuento = $valorBruto - intval($item["total"]);
+
 $precioTotal = number_format($item["total"], 2);
 
 $bloque4 = <<<EOF
@@ -210,7 +214,7 @@ $bloque4 = <<<EOF
 
 		<tr>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:260px; text-align:center">
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:140px; text-align:center">
 				$item[descripcion]
 			</td>
 
@@ -219,7 +223,11 @@ $bloque4 = <<<EOF
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
-				$valorUnitario
+				$valorUnitario - %$item[porcentaje]
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+				$valorDescuento
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
@@ -272,6 +280,7 @@ $bloque5 = <<<EOF
 			</td>
 
 		</tr>
+
 
 		<tr>
 

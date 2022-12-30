@@ -102,7 +102,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 			  '<!-- Descripción del producto -->'+
 	          
-	          '<div class="col-xs-6" style="padding-right:0px">'+
+	          '<div class="col-xs-5" style="padding-right:0px">'+
 	          
 	            '<div class="input-group">'+
 	              
@@ -116,7 +116,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	          '<!-- Cantidad del producto -->'+
 
-	          '<div class="col-xs-3">'+
+	          '<div class="col-xs-2">'+
 	            
 	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock="'+stock+'" nuevoStock="'+Number(stock-1)+'" required>'+
 
@@ -135,6 +135,12 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 	            '</div>'+
 	             
 	          '</div>'+
+
+			  '<div class="col-xs-2">'+
+
+	             '<input type="text" class="form-control nuevoPorcentajePrecio" name="nuevoPorcentajePrecio" min="0" value="1" stock="'+stock+'">'+
+
+	          '</div>' +
 
 	        '</div>') 
 
@@ -460,6 +466,37 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 })
 
 /*=============================================
+PORCENTAJE PRECIO MAYORISTA
+=============================================*/
+
+
+$(".formularioVenta").on("keydown", "input.nuevoPorcentajePrecio", function(e){
+
+	var code = e.keyCode || e.which;
+
+	if (code === 9) {  
+		var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
+		
+		var precioFinal = precio.val() - ( ($(this).val() * precio.val() ) /100 );
+		
+		precio.val(precioFinal);
+	}
+
+	// SUMAR TOTAL DE PRECIOS
+
+	sumarTotalPrecios()
+
+	// AGREGAR IMPUESTO
+	        
+    agregarImpuesto()
+
+    // AGRUPAR PRODUCTOS EN FORMATO JSON
+
+    listarProductos()
+
+})
+
+/*=============================================
 SUMAR TODOS LOS PRECIOS
 =============================================*/
 
@@ -680,6 +717,8 @@ function listarProductos(){
 
 	var precio = $(".nuevoPrecioProducto");
 
+	var porcentaje = $(".nuevoPorcentajePrecio");
+
 	for(var i = 0; i < descripcion.length; i++){
 
 		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
@@ -687,6 +726,7 @@ function listarProductos(){
 							  "cantidad" : $(cantidad[i]).val(),
 							  "stock" : $(cantidad[i]).attr("nuevoStock"),
 							  "precio" : $(precio[i]).attr("precioReal"),
+							  "porcentaje" : $(porcentaje[i]).val(),
 							  "total" : $(precio[i]).val()})
 
 	}
