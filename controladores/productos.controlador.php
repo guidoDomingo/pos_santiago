@@ -104,6 +104,7 @@ class ControladorProductos{
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
 							   "precio_venta" => $_POST["nuevoPrecioVenta"],
+							   "porcentaje" => $_POST["porcentaje"],
 							   "proveedor" => $_POST["nuevoProveedor"],
 							   "imagen" => $ruta);
 
@@ -255,6 +256,7 @@ class ControladorProductos{
 							   "stock" => $_POST["editarStock"],
 							   "precio_compra" => $_POST["editarPrecioCompra"],
 							   "precio_venta" => $_POST["editarPrecioVenta"],
+							   "porcentaje" => $_POST["porcentaje"],
 							   "imagen" => $ruta);
 
 				$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);

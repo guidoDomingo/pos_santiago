@@ -66,6 +66,9 @@ class TablaProductosVentas{
 
   			}
 
+			$porcentaje = $productos[$i]["porcentaje"];
+			$precio = $productos[$i]["precio_venta"];
+
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
@@ -78,6 +81,8 @@ class TablaProductosVentas{
 			      "'.$productos[$i]["codigo"].'",
 			      "'.$proveedor.'",
 			      "'.$productos[$i]["descripcion"].'",
+			      "'.$porcentaje.'",
+			      "'.$precio.'",
 			      "'.$stock.'",
 			      "'.$botones.'"
 			    ],';
