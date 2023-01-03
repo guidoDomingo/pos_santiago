@@ -507,7 +507,7 @@ MODAL EDITAR PRODUCTO
                     
                     <div class="input-group">
                       
-                      <input type="number" name="porcentaje" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
+                      <input id="porcentaje" type="number" name="porcentaje" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
 
                       <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
