@@ -54,7 +54,7 @@ class TablaProductos{
  	 		TRAEMOS LA IMAGEN
   			=============================================*/ 
 
-		  	$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
+		  	$imagen = "hola";
 
 		  	/*=============================================
  	 		TRAEMOS LA CATEGORÍA
