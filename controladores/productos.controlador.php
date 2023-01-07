@@ -24,7 +24,8 @@ class ControladorProductos{
 
 		if(isset($_POST["nuevaDescripcion"])){
 
-			if(preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&	
+			if(preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&
+			   !strpos($_POST["nuevaDescripcion"], "\"") &&		
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
 

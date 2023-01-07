@@ -15,7 +15,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 var perfilOculto = $("#perfilOculto").val();
 
-$('.tablaProductos').DataTable( {
+$('#tablaProductosCargados').DataTable( {
     "ajax": "ajax/datatable-productos.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
 	"retrieve": true,
