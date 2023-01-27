@@ -49,7 +49,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 
       <div class="box-body">
         
-       <table id="tablaProductosCargados" class="table table-bordered table-striped dt-responsive " width="100%">
+       <table id="tablaProductos" class="table table-bordered table-striped dt-responsive " width="100%">
          
         <thead>
          

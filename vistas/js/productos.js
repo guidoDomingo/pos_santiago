@@ -15,7 +15,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 var perfilOculto = $("#perfilOculto").val();
 
-$('#tablaProductosCargados').DataTable( {
+$('#tablaProductos').DataTable( {
     "ajax": "ajax/datatable-productos.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
 	"retrieve": true,
@@ -202,10 +202,10 @@ $(".nuevaImagen").change(function(){
 EDITAR PRODUCTO
 =============================================*/
 
-$(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
-
+$("#tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
+	console.log("entroo aca");
 	var idProducto = $(this).attr("idProducto");
-	
+	console.log(idProducto);
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
